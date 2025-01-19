@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup, Tag
 BASE_URL = "http://quotes.toscrape.com/"
 NUM_PAGES = 10
 
+
 @dataclass
 class Quote:
     text: str
