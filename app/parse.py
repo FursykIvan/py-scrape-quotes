@@ -30,11 +30,11 @@ def get_quotes() -> list[Quote]:
             response.raise_for_status()
             soup = BeautifulSoup(response.content, "html.parser")
             quotes = soup.select(".quote")
-            all_quotes.extend(parse_single_quote(quotes) for quotes in quotes)
+            all_quotes.extend(parse_single_quote(quote) for quote in quotes)
         return all_quotes
 
 
-def main(output_csv_path: str) -> [Quote]:
+def main(output_csv_path: str) -> None:
     quotes = get_quotes()
     with open(output_csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
